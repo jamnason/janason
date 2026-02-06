@@ -3,7 +3,7 @@ import OpenAI from 'openai';
 
 export const runtime = 'edge';
 
-// 初始化 OpenAI 客户端 (可配置为 DeepSeek 或其他兼容接口)
+// 初始化 OpenAI 客户端 (优先使用 SiliconCloud)
 const apiKey = process.env.SILICON_CLOUD_API_KEY || process.env.DEEPSEEK_API_KEY || process.env.OPENAI_API_KEY;
 
 const openai = apiKey ? new OpenAI({
@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
   if (!openai) {
     return new Response(JSON.stringify({ 
       error: 'API_KEY_MISSING',
-      message: '未检测到 DEEPSEEK_API_KEY。请确保项目根目录的 .env 文件中有该配置，并重启开发服务器。' 
+      message: '未检测到 API 密钥。请在 Vercel 环境变量中配置 SILICON_CLOUD_API_KEY。' 
     }), {
       status: 401,
       headers: { 'Content-Type': 'application/json' },
