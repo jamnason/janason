@@ -4,7 +4,7 @@ import OpenAI from 'openai';
 export const runtime = 'edge';
 
 // 初始化 OpenAI 客户端 (可配置为 DeepSeek 或其他兼容接口)
-const apiKey = process.env.DEEPSEEK_API_KEY || process.env.OPENAI_API_KEY;
+const apiKey = process.env.SILICON_CLOUD_API_KEY || process.env.DEEPSEEK_API_KEY || process.env.OPENAI_API_KEY;
 
 const openai = apiKey ? new OpenAI({
   apiKey: apiKey,
