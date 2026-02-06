@@ -3,7 +3,7 @@ import OpenAI from 'openai';
 
 export const runtime = 'edge';
 
-const apiKey = process.env.DEEPSEEK_API_KEY || process.env.OPENAI_API_KEY;
+const apiKey = process.env.SILICON_CLOUD_API_KEY || process.env.DEEPSEEK_API_KEY || process.env.OPENAI_API_KEY;
 
 const openai = apiKey ? new OpenAI({
   apiKey: apiKey,
