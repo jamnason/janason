@@ -1,7 +1,15 @@
+'use client';
+
 import Link from 'next/link';
 import { Search, Home, ArrowLeft } from 'lucide-react';
 
 export default function NotFound() {
+  const handleBack = () => {
+    if (typeof window !== 'undefined') {
+      window.history.back();
+    }
+  };
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-[#FAFAFA] px-6 text-center">
       <div className="relative mb-8">
@@ -24,7 +32,7 @@ export default function NotFound() {
           回到首页
         </Link>
         <button
-          onClick={() => window.history.back()}
+          onClick={handleBack}
           className="flex items-center justify-center gap-2 rounded-2xl border border-gray-200 bg-white px-8 py-3 font-bold text-gray-600 transition hover:bg-gray-50 active:scale-95"
         >
           <ArrowLeft size={18} />

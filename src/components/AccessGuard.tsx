@@ -10,7 +10,10 @@ export default function AccessGuard({ children }: { children: React.ReactNode })
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
     const auth = localStorage.getItem('site_authorized');
     if (auth === 'true') {
       setIsAuthorized(true);
@@ -18,6 +21,14 @@ export default function AccessGuard({ children }: { children: React.ReactNode })
       setIsAuthorized(false);
     }
   }, []);
+
+  if (!mounted) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-white">
+        <Loader2 className="h-8 w-8 animate-spin text-indigo-600" />
+      </div>
+    );
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
