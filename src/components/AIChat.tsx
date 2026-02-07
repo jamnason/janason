@@ -356,7 +356,7 @@ export default function AIChat() {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-28 right-10 z-50 flex h-[600px] w-[400px] flex-col overflow-hidden rounded-[2rem] border border-gray-100 bg-white shadow-2xl"
+            className="fixed bottom-24 right-4 sm:bottom-28 sm:right-10 z-50 flex h-[calc(100vh-120px)] w-[calc(100vw-32px)] sm:h-[600px] sm:w-[400px] flex-col overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-gray-100 bg-white shadow-2xl"
           >
             {/* Header */}
             <div className="flex items-center justify-between bg-indigo-600 p-6 text-white">
